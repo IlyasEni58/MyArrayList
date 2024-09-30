@@ -7,16 +7,18 @@ public class Main {
     public static void main(String[] args) {
 
 
-        MyArrayList<Integer> bratva = new MyArrayList<>();
+        MyArrayList<String> exemple = new MyArrayList<>();
 
-        bratva.add(3);
-        bratva.add(4);
-        bratva.add(1);
-        bratva.add(4);
-        bratva.remove(2);
+        exemple.add("2");
+        exemple.add("4");
+        exemple.add("1");
+        exemple.add("3");
+        exemple.removeAt(2);
+        exemple.clear();
 
-        for(int i = 0; i < bratva.size(); i++){
-            System.out.println(bratva.get(i));
+
+        for(int i = 0; i < exemple.size(); i++){
+            System.out.println(exemple.get(i));
         }
 
 //        for(String b : bratva){

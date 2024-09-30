@@ -2,9 +2,9 @@ import java.util.*;
 import java.util.function.Consumer;
 
 public class MyArrayList<T> {
-
     private Object[] array = new Object[10];
     private int size = 0;
+    private boolean sorted = false;
 
 
     public MyArrayList() {
@@ -19,7 +19,6 @@ public class MyArrayList<T> {
     public Object get(int index) {
         checkIndex(index);
         return array[index];
-
     }
 
 
@@ -72,6 +71,22 @@ public class MyArrayList<T> {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
+    }
+    public void sort() {
+        if (this.sorted) return;
+
+        bubbleSort();
+        this.sorted = true;
+    }
+
+    private void bubbleSort() {
+        for (int i = 0; i < this.size - 1; i++)
+            for (int j = 0; j < this.size - i - 1; j++)
+                if (this.array[j].hashCode() > this.array[j + 1].hashCode()) {
+                    T temp = (T) this.array[j];
+                    this.array[j] = this.array[j + 1];
+                    this.array[j + 1] = temp;
+                }
     }
 
 }
